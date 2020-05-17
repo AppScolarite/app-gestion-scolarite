@@ -55,13 +55,11 @@ public class HomeStartup extends Application {
 
         });
         primaryStage.show();
-        System.out.println("start !");
 
         applicationContext.publishEvent(new StageReadyEvent(primaryStage));
     }
 
     public static void main(String[] args) {
-        System.out.println("start main !");
         launch(args);
     }
 

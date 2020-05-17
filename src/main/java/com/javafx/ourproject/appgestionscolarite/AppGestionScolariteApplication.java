@@ -9,7 +9,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AppGestionScolariteApplication {
 
     public static void main(String[] args) {
-//        SpringApplication.run(HomeStartup.class, args);
         Application.launch(HomeStartup.class, args);
     }
 
