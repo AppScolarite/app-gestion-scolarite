@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.javafx.ourproject.Entities.BrancheEntity" table="BRANCHE" schema="dbo" catalog="system_scolarite">
+        <id name="idBranche">
+            <column name="id_branche" sql-type="int"/>
+        </id>
+        <property name="libelleBranche">
+            <column name="libelle_branche" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="prerequisNote">
+            <column name="prerequis_note" sql-type="float" precision="-1" not-null="true"/>
+        </property>
+        <property name="descriptionBranche">
+            <column name="description_branche" sql-type="varchar(250)" length="250" not-null="true"/>
+        </property>
+        <set name="groupesByIdBranche" inverse="true">
+            <key>
+                <column name="branche#" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.javafx.ourproject.Entities.GroupeEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

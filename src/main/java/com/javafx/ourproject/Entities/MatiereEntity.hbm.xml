@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.javafx.ourproject.Entities.MatiereEntity" table="MATIERE" schema="dbo" catalog="system_scolarite">
+        <id name="idMatiere">
+            <column name="id_matiere" sql-type="int"/>
+        </id>
+        <property name="lblMatiere">
+            <column name="LBL_Matiere" sql-type="varchar(25)" length="25" not-null="true"/>
+        </property>
+        <property name="dateAjout">
+            <column name="Date_Ajout" sql-type="date" not-null="true"/>
+        </property>
+        <property name="coeff">
+            <column name="Coeff" sql-type="int" not-null="true"/>
+        </property>
+        <set name="enseignementsByIdMatiere" inverse="true">
+            <key>
+                <column name="matiere#"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.javafx.ourproject.Entities.EnseignementEntity"/>
+        </set>
+        <set name="notesByIdMatiere" inverse="true">
+            <key>
+                <column name="matiere#" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.javafx.ourproject.Entities.NoteEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

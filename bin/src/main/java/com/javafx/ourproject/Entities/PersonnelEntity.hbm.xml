@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.javafx.ourproject.Entities.PersonnelEntity" table="PERSONNEL" schema="dbo"
+           catalog="system_scolarite">
+        <id name="idPersonnel">
+            <column name="id_personnel" sql-type="int"/>
+        </id>
+        <property name="nomPersonnel">
+            <column name="nom_personnel" sql-type="varchar(25)" length="25" not-null="true"/>
+        </property>
+        <property name="prenomPersonnel">
+            <column name="prenom_personnel" sql-type="varchar(25)" length="25" not-null="true"/>
+        </property>
+        <property name="dateNaissancePersonnel">
+            <column name="date_naissance_personnel" sql-type="date" not-null="true"/>
+        </property>
+        <property name="photoPersonnel">
+            <column name="photo_personnel" sql-type="image" not-null="true"/>
+        </property>
+        <property name="emailPersonnel">
+            <column name="email_personnel" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="telephonePersonnel">
+            <column name="telephone_personnel" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="sexe">
+            <column name="sexe" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="adresse">
+            <column name="adresse" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <set name="actualitesByIdPersonnel" inverse="true">
+            <key>
+                <column name="ajoute_par_personnel#" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.javafx.ourproject.Entities.ActualiteEntity"/>
+        </set>
+        <set name="etudiantsByIdPersonnel" inverse="true">
+            <key>
+                <column name="inscrit_par_personnel#" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.javafx.ourproject.Entities.EtudiantEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

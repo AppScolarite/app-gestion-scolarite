@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.javafx.ourproject.Entities.NiveauEntity" table="NIVEAU" schema="dbo" catalog="system_scolarite">
+        <id name="idNiveau">
+            <column name="id_niveau" sql-type="int"/>
+        </id>
+        <property name="libelleNiveau">
+            <column name="libelle_niveau" sql-type="varchar(50)" length="50" not-null="true"/>
+        </property>
+        <property name="descriptionNiveau">
+            <column name="description_niveau" sql-type="varchar(250)" length="250" not-null="true"/>
+        </property>
+        <set name="groupesByIdNiveau" inverse="true">
+            <key>
+                <column name="niveau#" not-null="true"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.javafx.ourproject.Entities.GroupeEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>

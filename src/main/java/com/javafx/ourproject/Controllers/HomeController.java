@@ -1,5 +1,6 @@
 package com.javafx.ourproject.Controllers;
 
+import com.javafx.ourproject.Services.BranchServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -14,6 +15,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,10 +55,21 @@ public class HomeController implements Initializable {
     @FXML
     private BorderPane panelGestion;
 
+//    @Autowired
+//    private BrancheRepository brancheRepository;
+
+//    @Autowired
+//    BranchServiceImpl brancheService;
+
     @FXML
     private void btnClose_Click(ActionEvent e) {
-        stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
-        stage.close();
+//        stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
+//        stage.close();
+
+//        System.out.println("just testing hibernate");
+////        System.out.println(brancheRepository.findById(1).orElseThrow(()-> new RuntimeException("Exception rejeter !")));
+//        System.out.println(brancheService.listAll().size());
+
     }
 
     @FXML

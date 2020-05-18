@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.javafx.ourproject.Entities.NoteEntity" table="NOTE" schema="dbo" catalog="system_scolarite">
+        <id name="idNote">
+            <column name="id_note" sql-type="int"/>
+        </id>
+        <property name="matiere">
+            <column name="matiere#" sql-type="int" not-null="true"/>
+        </property>
+        <property name="valeurNote">
+            <column name="Valeur_Note" sql-type="float" precision="-1" not-null="true"/>
+        </property>
+        <many-to-one name="matiereByMatiere" class="com.javafx.ourproject.Entities.MatiereEntity">
+            <column name="matiere#" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

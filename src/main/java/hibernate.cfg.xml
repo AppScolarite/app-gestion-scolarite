@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">
+            jdbc:sqlserver://localhost:1433;databaseName=system_scolarite;
+        </property>
+        <property name="connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+        <mapping class="com.javafx.ourproject.Entities.ActualiteEntity"/>
+        <mapping resource="com/javafx/ourproject/Entities/ActualiteEntity.hbm.xml"/>
+        <mapping resource="com/javafx/ourproject/Entities/BrancheEntity.hbm.xml"/>
+        <mapping class="com.javafx.ourproject.Entities.BrancheEntity"/>
+        <mapping resource="com/javafx/ourproject/Entities/EnseignementEntity.hbm.xml"/>
+        <mapping class="com.javafx.ourproject.Entities.EnseignementEntity"/>
+        <mapping resource="com/javafx/ourproject/Entities/EtudiantEntity.hbm.xml"/>
+        <mapping class="com.javafx.ourproject.Entities.EtudiantEntity"/>
+        <mapping class="com.javafx.ourproject.Entities.GroupeEntity"/>
+        <mapping resource="com/javafx/ourproject/Entities/GroupeEntity.hbm.xml"/>
+        <mapping resource="com/javafx/ourproject/Entities/MatiereEntity.hbm.xml"/>
+        <mapping class="com.javafx.ourproject.Entities.MatiereEntity"/>
+        <mapping class="com.javafx.ourproject.Entities.NiveauEntity"/>
+        <mapping resource="com/javafx/ourproject/Entities/NiveauEntity.hbm.xml"/>
+        <mapping class="com.javafx.ourproject.Entities.NoteEntity"/>
+        <mapping resource="com/javafx/ourproject/Entities/NoteEntity.hbm.xml"/>
+        <mapping class="com.javafx.ourproject.Entities.PersonnelEntity"/>
+        <mapping resource="com/javafx/ourproject/Entities/PersonnelEntity.hbm.xml"/>
+        <mapping class="com.javafx.ourproject.Entities.ProfesseurEntity"/>
+        <mapping resource="com/javafx/ourproject/Entities/ProfesseurEntity.hbm.xml"/>
+        <!-- <property name="connection.username"/> -->
+        <!-- <property name="connection.password"/> -->
+
+        <!-- DB schema will be updated if needed -->
+        <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+    </session-factory>
+</hibernate-configuration>

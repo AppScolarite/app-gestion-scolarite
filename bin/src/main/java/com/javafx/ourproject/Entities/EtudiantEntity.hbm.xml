@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.javafx.ourproject.Entities.EtudiantEntity" table="ETUDIANT" schema="dbo"
+           catalog="system_scolarite">
+        <id name="codeMassar">
+            <column name="code_massar" sql-type="varchar(20)" length="20"/>
+        </id>
+        <property name="nom">
+            <column name="nom" sql-type="varchar(25)" length="25" not-null="true"/>
+        </property>
+        <property name="prenom">
+            <column name="prenom" sql-type="varchar(25)" length="25" not-null="true"/>
+        </property>
+        <property name="dateNaissance">
+            <column name="date_naissance" sql-type="date" not-null="true"/>
+        </property>
+        <property name="dateInscription">
+            <column name="date_inscription" sql-type="date" not-null="true"/>
+        </property>
+        <property name="email">
+            <column name="email" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="telephone">
+            <column name="telephone" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="aDejaRedouble">
+            <column name="a_deja_redouble" sql-type="bit" not-null="true"/>
+        </property>
+        <property name="sexe">
+            <column name="sexe" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="adresse">
+            <column name="adresse" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="inscritParPersonnel">
+            <column name="inscrit_par_personnel#" sql-type="int" not-null="true"/>
+        </property>
+        <property name="groupe">
+            <column name="groupe#" sql-type="int" not-null="true"/>
+        </property>
+        <many-to-one name="personnelByInscritParPersonnel" class="com.javafx.ourproject.Entities.PersonnelEntity">
+            <column name="inscrit_par_personnel#" not-null="true"/>
+        </many-to-one>
+        <many-to-one name="groupeByGroupe" class="com.javafx.ourproject.Entities.GroupeEntity">
+            <column name="groupe#" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

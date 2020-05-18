@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.javafx.ourproject.Entities.ProfesseurEntity" table="PROFESSEUR" schema="dbo"
+           catalog="system_scolarite">
+        <id name="codeProNationnal">
+            <column name="Code_Pro_Nationnal" sql-type="varchar(20)" length="20"/>
+        </id>
+        <property name="cin">
+            <column name="Cin" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="nom">
+            <column name="Nom" sql-type="varchar(25)" length="25" not-null="true"/>
+        </property>
+        <property name="prenom">
+            <column name="Prenom" sql-type="varchar(25)" length="25" not-null="true"/>
+        </property>
+        <property name="dateNaissance">
+            <column name="Date_Naissance" sql-type="date" not-null="true"/>
+        </property>
+        <property name="dateCommencementContrat">
+            <column name="Date_Commencement_Contrat" sql-type="date" not-null="true"/>
+        </property>
+        <property name="typeContrat">
+            <column name="Type_Contrat" sql-type="varchar(10)" length="10" not-null="true"/>
+        </property>
+        <property name="email">
+            <column name="Email" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="telephone">
+            <column name="Telephone" sql-type="varchar(15)" length="15" not-null="true"/>
+        </property>
+        <property name="sexe">
+            <column name="sexe" sql-type="varchar(10)" length="10"/>
+        </property>
+        <property name="adresse">
+            <column name="Adresse" sql-type="varchar(100)" length="100" not-null="true"/>
+        </property>
+        <property name="situationFamilliale">
+            <column name="Situation_Familliale" sql-type="varchar(20)" length="20" not-null="true"/>
+        </property>
+        <set name="enseignementsByCodeProNationnal" inverse="true">
+            <key>
+                <column name="professeur#"/>
+            </key>
+            <one-to-many not-found="ignore" class="com.javafx.ourproject.Entities.EnseignementEntity"/>
+        </set>
+    </class>
+</hibernate-mapping>
